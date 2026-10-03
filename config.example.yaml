@@ -1,0 +1,123 @@
+# Copy to config.yaml and edit. Everything here can be changed without touching code.
+
+shop:
+  name: "Your Shop Name"
+  # Who you design for. The idea agent writes for this person.
+  audience: >
+    Women aged 40-65 in the US. They buy gifts for themselves, friends, and family.
+    They like humor that's warm, never mean. Wine, coffee, gardening, dogs, cats,
+    books, grandkids, teaching, nursing, retirement, camping, and road trips.
+  # Topics to focus on. Leave empty to let the agent pick from trend research.
+  niches:
+    - gardening
+    - dog mom / cat mom
+    - book club
+    - grandma / nana
+    - retirement
+    - teacher and nurse appreciation
+    - coffee and wine humor
+  # Style guidance for every design.
+  style: >
+    Clean, readable, print-friendly. Two to four colors. Retro, cottagecore,
+    boho, or hand-lettered looks. No photorealism and no tiny details.
+  # Added to every listing description. Etsy expects you to disclose AI use
+  # and that a production partner makes the item. Check Etsy's current
+  # Creativity Standards and update this text if needed.
+  disclosure: >
+    Designed by our shop with the help of digital tools, including AI.
+    Printed and shipped by our production partner.
+
+pipeline:
+  ideas_per_run: 5
+  # Search the web for current trends before coming up with ideas.
+  research_with_web: true
+  # false = designs wait for you to run `approve`. true = anything that passes
+  # the policy check and image QA goes live with no review. Start with false.
+  auto_publish: false
+
+claude:
+  model: claude-opus-5-5
+
+images:
+  # "openai" = AI illustration (needs OPENAI_API_KEY)
+  # "typography" = text-only lettering made locally (free, never misspells)
+  # "auto" = openai if a key is set, otherwise typography
+  backend: auto
+  openai_model: gpt-image-1
+  openai_quality: high
+  # Final print file size in pixels. 4500x5400 is Printify's apparel recommendation.
+  print_width: 4500
+  print_height: 5400
+  # Optional .ttf/.otf file for the typography backend.
+  font_path: ""
+
+# Words and names that get a design rejected right away. These are trademarks
+# or famous characters that get Etsy shops taken down. Add to this list freely.
+blocked_terms:
+  - disney
+  - mickey
+  - minnie
+  - marvel
+  - star wars
+  - pixar
+  - harry potter
+  - hogwarts
+  - taylor swift
+  - swiftie
+  - eras tour
+  - stanley
+  - starbucks
+  - nike
+  - coca-cola
+  - nfl
+  - nba
+  - mlb
+  - barbie
+  - grinch
+  - snoopy
+  - peanuts
+  - hello kitty
+  - pokemon
+  - bluey
+  - yellowstone
+  - hocus pocus
+  - golden girls
+  - dolly parton
+  - friends tv
+  - schitt's creek
+  - lululemon
+  - yeti
+
+# The products each design is offered on. `blueprint_search` is matched against
+# Printify's catalog titles. Run `python -m shop catalog <words>` to see options,
+# then set blueprint_id / print_provider_id to pin a specific one.
+# Prices are in cents.
+products:
+  tee:
+    blueprint_search: "Unisex Jersey Short Sleeve Tee"
+    blueprint_id: null
+    print_provider_id: null
+    colors: ["White", "Natural", "Heather Dust", "Soft Pink", "Heather Peach"]
+    sizes: ["S", "M", "L", "XL", "2XL", "3XL"]
+    price: 2499
+  sweatshirt:
+    blueprint_search: "Unisex Heavy Blend Crewneck Sweatshirt"
+    blueprint_id: null
+    print_provider_id: null
+    colors: ["White", "Sand", "Light Pink", "Ash"]
+    sizes: ["S", "M", "L", "XL", "2XL", "3XL"]
+    price: 3999
+  mug:
+    blueprint_search: "Mug 11oz"
+    blueprint_id: null
+    print_provider_id: null
+    colors: []
+    sizes: []
+    price: 1799
+  tote:
+    blueprint_search: "Tote Bag"
+    blueprint_id: null
+    print_provider_id: null
+    colors: []
+    sizes: []
+    price: 2299
